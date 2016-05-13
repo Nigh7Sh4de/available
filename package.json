@@ -1,0 +1,19 @@
+{
+  "name": "available",
+  "version": "0.0.0",
+  "description": "A lightweight JS library for defining an array of time ranges.",
+  "main": "available.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigh7sh4de/available.git"
+  },
+  "author": "nigh7sh4de",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nigh7sh4de/available/issues"
+  },
+  "homepage": "https://github.com/nigh7sh4de/available#readme"
+}
