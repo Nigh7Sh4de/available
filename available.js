@@ -24,7 +24,6 @@ available.prototype = {
     
     removeTimeRange: function(start, end) {
         for (var i=0; i < this.time.length; i+=2) {
-            this.cycles++;
             if (this.time[i+1] >= start) {
                 if (this.time[i] > end)
                     return;
