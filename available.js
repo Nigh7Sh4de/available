@@ -4,10 +4,26 @@ var available = function() {
     this.cycles = 0;
 }
 
+// available.prototype.
+
 available.prototype = {
+    _dec: function(d) {
+        return new Date(d.valueOf() - 1);
+    },
     addTimeRange: function(start, end) {
-        this.time.push(start);
-        this.time.push(end - 1 /*ms*/);
+        var _start = null;
+        var count = 0;
+        var found = false;
+        for (var i=0; i < this.time.length; i+=2) {
+            this.cycles++;
+            if (this.time[i+1] >= this._dec(start)) {
+                count ++;
+                _start = i;
+                start = this.time[i];
+            }
+        }
+        _start = _start != null ? _start : this.time.length;
+        this.time.splice(_start, 2 * count, start, this._dec(end));
     },
     
     checkTime: function(val) {
@@ -29,7 +45,7 @@ available.prototype = {
                     return;
                 else if (this.time[i] < start &&
                          this.time[i+1] > end) {
-                    this.time.splice(i + 1, 0, start - 1/*ms*/, end);
+                    this.time.splice(i + 1, 0, this._dec(start), end);
                     return;
                 }
                 else if (this.time[i] >= start &&
@@ -39,7 +55,7 @@ available.prototype = {
                 }
                 else if (this.time[i] < start &&
                          this.time[i+1] < end) {
-                    this.time[i+1] = start - 1/*ms*/;
+                    this.time[i+1] = this._dec(start);
                 }
                 else if (this.time[i] >= start &&
                          this.time[i+1] > end) {
