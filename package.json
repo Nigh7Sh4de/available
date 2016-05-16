@@ -1,20 +1,20 @@
 {
-  "name": "available",
+  "name": "ranger",
   "version": "0.0.0",
-  "description": "A lightweight JS library for defining an array of time ranges.",
-  "main": "available.js",
+  "description": "A lightweight JS library for defining an array of ranges.",
+  "main": "ranger.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nigh7sh4de/available.git"
+    "url": "git+https://github.com/nigh7sh4de/ranger.git"
   },
   "author": "nigh7sh4de",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nigh7sh4de/available/issues"
+    "url": "https://github.com/nigh7sh4de/ranger/issues"
   },
-  "homepage": "https://github.com/nigh7sh4de/available#readme"
+  "homepage": "https://github.com/nigh7sh4de/ranger#readme"
 }
