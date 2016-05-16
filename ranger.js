@@ -1,5 +1,5 @@
 
-var ranger = function(arr, type) {
+var ranger = function(arr) {
     this.ranges = arr || [];
 }
 
