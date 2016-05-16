@@ -1,11 +1,11 @@
-ranger
+ranger.js
 ========
 
 A lightweight JS library for defining an array of ranges.
 
 *note: upper limit is exclusive*
 
-    var ranger = require('ranger');
+    var ranger = require('rangerjs');
     var newRanger = new ranger();
     var existingRanger = new ranger(array);
     
