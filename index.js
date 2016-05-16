@@ -5,7 +5,6 @@ var check = function() {
 }
 
 var Available = require('./available');
-Available.setType('date');
 var a = new Available();
 
 a.addTimeRange(new Date('2016/01/01 2:00'), new Date('2016/01/01 5:00'));
