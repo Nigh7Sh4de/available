@@ -1,7 +1,6 @@
 
 var available = function(arr, type) {
     this.time = arr || [];
-    this.cycles = 0;
 }
 
 available.prototype = {
@@ -9,7 +8,6 @@ available.prototype = {
         var index = null,
             count = 0;
         for (var i=0; i < this.time.length; i+=2) {
-            this.cycles++;
             if (this.time[i] > end) {
                 break;
             }
