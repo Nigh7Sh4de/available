@@ -34,5 +34,6 @@ a.removeTimeRange(new Date('2016/01/01 4:00'), new Date('2016/01/01 6:00'));
 
 check();
 
-console.log('Done: ' + a.cycles);
+console.log('Done.');
+// console.log('Done: ' + a.cycles);
 console.log(a.time);
