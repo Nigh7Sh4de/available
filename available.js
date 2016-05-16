@@ -2,42 +2,10 @@
 var available = function(arr, type) {
     this.time = arr || [];
     this.cycles = 0;
-    if (!this.type)
-        setType(type || 'number');
 }
-
-var setType = function(type) {
-    var self = available.prototype;
-    if (this instanceof available)
-        self = this;
-    self.type = type;
-    self.dec = available.types[type].dec;
-}
-
-available.types = {
-    date: {
-        dec: function(d) {
-            return new Date(d.valueOf() - 1);
-        }
-    },
-    number: {
-        dec: function(n) {
-            return n - 1;
-        }
-    }
-}
-
-available.setType = setType; 
 
 available.prototype = {
-    type: null,
-    dec: function() {
-        console.error('Type not set.');
-        return new Error('Type not set.');
-    },
-    setType: setType, 
     addTimeRange: function(start, end) {
-        end = this.dec(end);
         var index = null,
             count = 0;
         for (var i=0; i < this.time.length; i+=2) {
@@ -45,7 +13,7 @@ available.prototype = {
             if (this.time[i] > end) {
                 break;
             }
-            else if (this.time[i+1] >= this.dec(start)) {
+            else if (this.time[i+1] >= start) {
                 if (this.time[i] <= start &&
                     this.time[i+1] >= end) {
                     return;
@@ -78,7 +46,7 @@ available.prototype = {
         for (var i = 0; i < this.time.length; i+=2) {
             var min = this.time[i];
             var max = this.time[i+1];
-            if (min <= val && val <= max)
+            if (min <= val && val < max)
                 return true;
             if (min > val)
                 return false;
@@ -93,7 +61,7 @@ available.prototype = {
                     return;
                 else if (this.time[i] < start &&
                          this.time[i+1] > end) {
-                    this.time.splice(i + 1, 0, this.dec(start), end);
+                    this.time.splice(i + 1, 0, start, end);
                     return;
                 }
                 else if (this.time[i] >= start &&
@@ -103,7 +71,7 @@ available.prototype = {
                 }
                 else if (this.time[i] < start &&
                          this.time[i+1] < end) {
-                    this.time[i+1] = this.dec(start);
+                    this.time[i+1] = start;
                 }
                 else if (this.time[i] >= start &&
                          this.time[i+1] > end) {
