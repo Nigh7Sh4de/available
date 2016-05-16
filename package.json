@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nigh7sh4de/ranger.git"
+    "url": "git+https://github.com/nigh7sh4de/rangerjs.git"
   },
   "author": "nigh7sh4de",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nigh7sh4de/ranger/issues"
+    "url": "https://github.com/nigh7sh4de/rangerjs/issues"
   },
-  "homepage": "https://github.com/nigh7sh4de/ranger#readme"
+  "homepage": "https://github.com/nigh7sh4de/rangerjs#readme"
 }
