@@ -33,6 +33,14 @@ a.removeRange(new Date('2016/01/01 4:00'), new Date('2016/01/01 6:00'));
 
 check();
 
+a.addRange(new Date('2016/01/01 9:00'), new Date('2016/01/01 9:30'));
+
+console.log('a) 9-12: ' + a.checkRange(new Date('2016/01/01 9:00'), new Date('2016/01/01 12:00')));
+
+a.addRange(new Date('2016/01/01 9:30'), new Date('2016/01/01 12:00'));
+
+console.log('b) 9-12: ' + a.checkRange(new Date('2016/01/01 9:00'), new Date('2016/01/01 12:00')));
+
 console.log('Done.');
 // console.log('Done: ' + a.cycles);
 console.log(a.ranges);
