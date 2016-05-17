@@ -3,8 +3,16 @@ var ranger = function(arr) {
     this.ranges = arr || [];
 }
 
+var endBeforeStart = function(start, end) {
+    if (start - end > 0)
+        return true;
+    return false;
+}
+
 ranger.prototype = {
     addRange: function(start, end) {
+        if (endBeforeStart(start, end))
+            return new Error('Start must be before end for range');
         var index = null,
             count = 0;
         for (var i=0; i < this.ranges.length; i+=2) {
@@ -53,6 +61,8 @@ ranger.prototype = {
     },
     
     checkRange: function(start, end) {
+        if (endBeforeStart(start, end))
+            return new Error('Start must be before end for range');
         for (var i=0; i < this.ranges.length; i+=2) {
             if (this.ranges[i] <= start &&
                 this.ranges[i+1] >= end)
@@ -62,6 +72,8 @@ ranger.prototype = {
     },
     
     removeRange: function(start, end) {
+        if (endBeforeStart(start, end))
+            return new Error('Start must be before end for range');
         for (var i=0; i < this.ranges.length; i+=2) {
             if (this.ranges[i+1] >= start) {
                 if (this.ranges[i] > end)
