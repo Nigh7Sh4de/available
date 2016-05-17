@@ -52,6 +52,15 @@ ranger.prototype = {
         return false;
     },
     
+    checkRange: function(start, end) {
+        for (var i=0; i < this.ranges.length; i+=2) {
+            if (this.ranges[i] <= start &&
+                this.ranges[i+1] >= end)
+                return true;
+        }
+        return false;
+    },
+    
     removeRange: function(start, end) {
         for (var i=0; i < this.ranges.length; i+=2) {
             if (this.ranges[i+1] >= start) {
