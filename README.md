@@ -21,3 +21,9 @@ A lightweight JS library for defining an array of ranges.
     newRanger.check(3); //true
     newRanger.check(4); //false
     newRanger.check(5); //false
+    
+####newRanger.checkRange(from, to);
+    newRanger.checkRange(1, 5); //false
+    newRanger.checkRange(2, 4); //false
+    newRanger.checkRange(2, 3); //true
+    newRanger.checkRange(3, 4); //true
