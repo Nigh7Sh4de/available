@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nigh7sh4de/rangerjs/issues"
   },
-  "homepage": "https://github.com/nigh7sh4de/rangerjs#readme"
+  "homepage": "https://github.com/nigh7sh4de/rangerjs#readme",
+  "devDependencies": {
+    "mongoose": "^4.4.17"
+  }
 }
