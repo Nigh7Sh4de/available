@@ -1,14 +1,38 @@
 ranger.js
 ========
 
-A lightweight JS library for defining an array of ranges.
+A lightweight JS library for defining an array of ranges. Stores the ranges in an array of range objects.
 
 *note: upper limit is always non-inclusive*
 
     var ranger = require('rangerjs');
     var newRanger = new ranger();
     var existingRanger = new ranger(array);
+
+####ranger.Range(Type)
+    //Returns:
+    {
+        start: Type,
+        end: Type    
+    }
+
+In order to save the array to db (in this case MongoDB), use the following Schema type:
     
+    {
+        ...
+        ranges: {
+            type: ranger.Range(Type), //Type can be Number, Date, etc.
+            get: function(data) {
+                return new ranger(data);
+            },
+            set: function(data) {
+                return data.ranges || data;
+            }
+        }
+    }
+    
+Keep in mind that MongoDB does not listen for changes in individual array elements so after performing an operation (such as `addRange` or `removeRange`) make sure to `markModified('ranges')`
+
 ####newRanger.addRange(from, to);
     newRanger.addRange(1, 4);
     
