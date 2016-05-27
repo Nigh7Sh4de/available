@@ -1,6 +1,6 @@
 {
   "name": "rangerjs",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "A lightweight JS library for defining an array of ranges.",
   "main": "ranger.js",
   "scripts": {
