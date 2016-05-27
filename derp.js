@@ -4,7 +4,7 @@ var ranger = require('./ranger');
 
 var derp = new Schema({
     thing: {
-        type: [Date],
+        type: [ranger.Range(Date)],
         get: function(data) {
             return new ranger(data);
         },
