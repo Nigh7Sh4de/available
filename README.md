@@ -49,8 +49,14 @@ Keep in mind that MongoDB does not listen for changes in individual array elemen
 ####newRanger.checkRange(from, to);
     newRanger.checkRange(1, 5); //false
     newRanger.checkRange(2, 4); //false
-    newRanger.checkRange(2, 3); //true
+    newRanger.checkRange(2, 3); //false
     newRanger.checkRange(3, 4); //true
+
+####newRanger.nextRange(now);
+    newRanger.nextRange(1); // { start: 1, end: 2 }
+    newRanger.nextRange(2); // { start: 3, end: 4 }
+    newRanger.nextRange(5); // undefined
+    newRanger.nextRange();  // undefined
 
 ####newRanger.addRecuringRange(from, to, interval, count, finish);
 *Either `count` (of reptitions) or `finish` (final upper limit) must be set.*
