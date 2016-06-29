@@ -14,6 +14,9 @@ var a = new Ranger();
 a.addRange(new Date('2016/01/01 2:00'), new Date('2016/01/01 5:00'));
 a.addRange(new Date('2016/01/01 5:00'), new Date('2016/01/01 6:00'));
 a.addRange(new Date('2016/01/01 5:00'), new Date('2016/01/01 6:00'));
+
+
+
 a.addRange(new Date('2016/01/01 5:00'), new Date('2016/01/01 6:00'));
 a.addRange(new Date('2016/01/01 5:00'), new Date('2016/01/01 6:00'));
 a.addRange(new Date('2016/01/01 9:00'), new Date('2016/01/01 10:00'));
@@ -73,5 +76,9 @@ check(true, nerp.thing);
 
 console.log('Done recuring testing.');
 
+
 // console.log('Done: ' + a.cycles);
 console.log(a.ranges);
+
+console.log("Next after 3:00: ");
+console.log(a.nextRange(new Date('2016/01/01 3:00')));
