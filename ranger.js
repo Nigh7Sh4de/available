@@ -17,6 +17,11 @@ var endBeforeStart = function(start, end) {
 }
 
 ranger.prototype = {
+    nextRange: function(now) {
+        for (var i=0; i < this.ranges.length; i++)
+            if (now < this.ranges[i].end)
+                return this.ranges[i];
+    },
     removeRecuringRange: function(start, end, interval, count, finish) {
         var _start = Number(start),
             _end = Number(end),
