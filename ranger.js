@@ -22,6 +22,7 @@ ranger.prototype = {
             if (now < this.ranges[i].end)
                 return this.ranges[i];
     },
+    
     removeRecuringRange: function(start, end, interval, count, finish) {
         var _start = Number(start),
             _end = Number(end),
@@ -38,10 +39,10 @@ ranger.prototype = {
         if (count <= 0)
             return new Error('Recuring interval must be greater than 0.');
         for (var i=0; i < count; i++)
-            this.removeRange(new type(_start + i*_interval), 
+            this.removeRange(new type(_start + i*_interval),
                           new type(_end + i*_interval));
     },
-    
+
     addRecuringRange: function(start, end, interval, count, finish) {
         var _start = Number(start),
             _end = Number(end),
@@ -58,10 +59,10 @@ ranger.prototype = {
         if (count <= 0)
             return new Error('Recuring interval must be greater than 0.');
         for (var i=0; i < count; i++)
-            this.addRange(new type(_start + i*_interval), 
+            this.addRange(new type(_start + i*_interval),
                           new type(_end + i*_interval));
     },
-    
+
     addRange: function(start, end) {
         if (endBeforeStart(start, end))
             return new Error('Start must be before end for range');
@@ -100,7 +101,7 @@ ranger.prototype = {
         index = index === null ? this.ranges.length : index;
         this.ranges.splice(index, count, {start: start, end: end});
     },
-    
+
     check: function(val) {
         for (var i = 0; i < this.ranges.length; i++) {
             var range = this.ranges[i];
@@ -113,7 +114,7 @@ ranger.prototype = {
         }
         return false;
     },
-    
+
     checkRange: function(start, end) {
         if (endBeforeStart(start, end))
             return new Error('Start must be before end for range');
@@ -125,7 +126,7 @@ ranger.prototype = {
         }
         return false;
     },
-    
+
     removeRange: function(start, end) {
         if (endBeforeStart(start, end))
             return new Error('Start must be before end for range');
